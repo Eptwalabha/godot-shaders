@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd8uwhn4iluwe"]
+
+[ext_resource type="Material" uid="uid://yywq5ohwo5jv" path="res://2D/sdf-smooth/sdf-smooth.tres" id="1_bv4ay"]
+
+[node name="Base2d" type="ColorRect"]
+material = ExtResource("1_bv4ay")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

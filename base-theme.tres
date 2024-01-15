@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://vhwfajbl4ngm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rc4xm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x0ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5q1f2"]
+
+[resource]
+TextEdit/colors/background_color = Color(0, 0, 0, 0)
+TextEdit/colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+TextEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 0)
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_rc4xm")
+TextEdit/styles/normal = SubResource("StyleBoxEmpty_1x0ly")
+TextEdit/styles/read_only = SubResource("StyleBoxEmpty_5q1f2")

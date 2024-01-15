@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dssd1aduryvem"]
+
+[ext_resource type="Shader" path="res://2D/sdf/sdf-material.gdshader" id="1_84pai"]
+[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://2D/sdf/drawing.sdf.png" id="2_403dj"]
+
+[resource]
+shader = ExtResource("1_84pai")
+shader_parameter/sdf_threshold = 0.5
+shader_parameter/sdf_border_width = 0.015
+shader_parameter/sdf_outer_border_color = Color(0, 0, 0.529412, 1)
+shader_parameter/sdf_inner_border_color = Color(1, 0, 0, 1)
+shader_parameter/sdf_color = Color(0.298965, 0.479255, 0.880037, 1)
+shader_parameter/bg_color = Color(0.526143, 0.667058, 0.956131, 1)
+shader_parameter/uv_shift = 0.0
+shader_parameter/uv_shadow_shift = Vector2(0.015, 0)
+shader_parameter/shadow_size = 0.069
+shader_parameter/shadow_color = Color(0.00784314, 0.329412, 0, 1)
+shader_parameter/sdf = ExtResource("2_403dj")

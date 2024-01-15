@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dxscckwxbego7"]
+
+[ext_resource type="Shader" path="res://2D/disolve/disolve_ui.gdshader" id="1_wyukp"]
+
+[resource]
+shader = ExtResource("1_wyukp")

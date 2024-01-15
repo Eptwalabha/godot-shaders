@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://yywq5ohwo5jv"]
+
+[ext_resource type="Shader" path="res://2D/sdf-smooth/sdf-smooth.gdshader" id="1_vj18d"]
+[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://2D/sdf/drawing.sdf.png" id="2_ka4tb"]
+
+[resource]
+shader = ExtResource("1_vj18d")
+shader_parameter/sdf_threshold = 0.5
+shader_parameter/sdf_border_width = 0.01
+shader_parameter/sdf_border_color = Color(0.00586473, 0.203383, 0.886384, 1)
+shader_parameter/sdf_color = Color(0.619367, 0.744863, 1, 1)
+shader_parameter/smooth_color = Color(1, 0, 0, 1)
+shader_parameter/bg_color = Color(0.254902, 0.47451, 1, 1)
+shader_parameter/time_speed = 0.2
+shader_parameter/time_shift = 0.0
+shader_parameter/smin_k = 0.3
+shader_parameter/sdf = ExtResource("2_ka4tb")

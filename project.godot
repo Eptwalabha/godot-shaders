@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="shaders"
+run/main_scene="res://CORE/transition/scene_a.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+SceneLoader="*res://CORE/transition/scene_loader.gd"
+
+[file_customization]
+
+folder_colors={
+"res://2D/": "blue",
+"res://3D/": "red",
+"res://CORE/": "orange"
+}
+
+[gui]
+
+theme/custom="res://base-theme.tres"
+
+[rendering]
+
+renderer/rendering_method.mobile="gl_compatibility"

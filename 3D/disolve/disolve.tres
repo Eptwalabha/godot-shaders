@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://c3j1brigt7754"]
+
+[ext_resource type="Shader" path="res://3D/disolve/disolve.gdshader" id="1_jylod"]
+
+[sub_resource type="Gradient" id="Gradient_lf3xy"]
+offsets = PackedFloat32Array(0, 0.106383, 0.165485, 0.245863, 0.364066, 0.602837, 0.829787)
+colors = PackedColorArray(0.902637, 0.679513, 0, 1, 0.717647, 0.0705882, 0, 1, 0.57884, 0.0686585, 0.0130024, 1, 0.0614657, 0.0614657, 0.0614657, 1, 0.0739453, 0.0739453, 0.0739453, 1, 0.358076, 0.358076, 0.358076, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_635o5"]
+gradient = SubResource("Gradient_lf3xy")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wuox6"]
+noise_type = 2
+frequency = 0.004
+fractal_type = 2
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n4gqm"]
+in_3d_space = true
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_wuox6")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jylod")
+shader_parameter/threshold = 0.0
+shader_parameter/burn_size = 0.099
+shader_parameter/time_factor = 0.0
+shader_parameter/ratio = Vector2(1, 1)
+shader_parameter/scale = 1.0
+shader_parameter/gradient = SubResource("GradientTexture1D_635o5")
+shader_parameter/noise = SubResource("NoiseTexture2D_n4gqm")

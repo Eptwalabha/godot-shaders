@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dio1c6lpnar0v"]
+
+[ext_resource type="Shader" path="res://2D/repeat-pattern/repeat.gdshader" id="1_cbfhy"]
+[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://2D/sdf/drawing.sdf.png" id="2_eqkrk"]
+
+[resource]
+shader = ExtResource("1_cbfhy")
+shader_parameter/scale = 4.975
+shader_parameter/shift = 0.25
+shader_parameter/inner_scale = 0.6
+shader_parameter/angle_pi = 0.25
+shader_parameter/speed = 0.5
+shader_parameter/sdf_threshold = 0.5
+shader_parameter/sdf_color = Color(0.415686, 0.603922, 1, 1)
+shader_parameter/bg_color = Color(0.25332, 0.473895, 1, 1)
+shader_parameter/sdf = ExtResource("2_eqkrk")

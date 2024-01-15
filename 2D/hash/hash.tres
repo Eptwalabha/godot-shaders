@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ckljsm4dkjple"]
+
+[ext_resource type="Shader" path="res://2D/hash/hash.gdshader" id="1_8r01t"]
+[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://2D/sdf/drawing.sdf.png" id="2_mhkkm"]
+
+[resource]
+shader = ExtResource("1_8r01t")
+shader_parameter/sdf_threshold = 0.5
+shader_parameter/sdf_border_width = 0.003
+shader_parameter/scale = 2.0
+shader_parameter/screen_ratio = 1.778
+shader_parameter/hash_width = 0.1
+shader_parameter/hash_angle = 0.75
+shader_parameter/hash_density = 75.0
+shader_parameter/hash_pow = 3.0
+shader_parameter/sdf = ExtResource("2_mhkkm")

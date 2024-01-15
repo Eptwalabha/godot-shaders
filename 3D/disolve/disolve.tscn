@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmxlnxomlf62d"]
+
+[ext_resource type="Material" uid="uid://c3j1brigt7754" path="res://3D/disolve/disolve.tres" id="1_185qa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_63lwq"]
+sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
+sky_horizon_color = Color(0.646078, 0.655975, 0.670505, 1)
+ground_horizon_color = Color(0.646078, 0.655975, 0.670505, 1)
+
+[sub_resource type="Sky" id="Sky_v7eed"]
+sky_material = SubResource("ProceduralSkyMaterial_63lwq")
+
+[sub_resource type="Environment" id="Environment_s1hom"]
+background_mode = 2
+sky = SubResource("Sky_v7eed")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kleg8"]
+size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhx3r"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_psjrn"]
+material = SubResource("StandardMaterial3D_yhx3r")
+size = Vector2(5, 5)
+
+[node name="Disolve" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s1hom")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, -2.5)
+material_override = ExtResource("1_185qa")
+mesh = SubResource("PlaneMesh_kleg8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 2)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.962998, 0)
+mesh = SubResource("PlaneMesh_psjrn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0)
+shadow_enabled = true

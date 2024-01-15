@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm085oj1pu735"]
+
+[ext_resource type="Script" path="res://CORE/transition/scene.gd" id="1_j320b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc5bv"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6uvaf"]
+material = SubResource("StandardMaterial3D_bc5bv")
+
+[node name="SceneB" type="Node3D"]
+script = ExtResource("1_j320b")
+path = "res://CORE/transition/scene_a.tscn"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6uvaf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="NextScene" type="Button" parent="."]
+offset_left = 657.0
+offset_top = 67.0
+offset_right = 888.0
+offset_bottom = 127.0
+text = "next scene"
+
+[connection signal="pressed" from="NextScene" to="." method="_on_next_scene_pressed"]
