@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b2ljoseix1yvc"]
 
 [ext_resource type="Shader" path="res://2D/sdf-morph/sdf-morph.gdshader" id="1_f3r0a"]
-[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://2D/sdf/drawing.sdf.png" id="2_vl5yf"]
+[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://assets/img-sdf/drawing.sdf.png" id="2_vl5yf"]
 
 [resource]
 shader = ExtResource("1_f3r0a")

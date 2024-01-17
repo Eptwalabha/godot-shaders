@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dio1c6lpnar0v"]
 
 [ext_resource type="Shader" path="res://2D/repeat-pattern/repeat.gdshader" id="1_cbfhy"]
-[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://2D/sdf/drawing.sdf.png" id="2_eqkrk"]
+[ext_resource type="Texture2D" uid="uid://dnnho403u0ye0" path="res://assets/img-sdf/drawing.sdf.png" id="2_eqkrk"]
 
 [resource]
 shader = ExtResource("1_cbfhy")

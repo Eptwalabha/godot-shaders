@@ -9,11 +9,11 @@ uniform vec4 sdf_color : source_color = vec4(1.0);
 uniform vec4 bg_color: source_color;
 
 void fragment() {
-	vec2 uv = fract(vec2(UV.x * 1.778, UV.y));
+	vec2 uv = fract(vec2(UV.x * 1.778, UV.y) * 3.0);
 	vec2 uv1 = uv * .5 + vec2(0.0, 0.0);
 	vec2 uv2 = uv * .5 + vec2(0.5, 0.0);
 
-	float morph = (sin(TIME) + 1.0) / 2.0;
+	float morph = (sin(TIME * 2.0) + 1.0) / 2.0;
 	float sdf_dist = mix(texture(sdf, uv1).r, texture(sdf, uv2).r, morph);
 	float sdf_mask = smoothstep(sdf_threshold, sdf_threshold, sdf_dist);
 	COLOR = mix(bg_color, sdf_color, sdf_mask);
