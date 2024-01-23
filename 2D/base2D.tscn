@@ -1,11 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd8uwhn4iluwe"]
+[gd_scene load_steps=3 format=3 uid="uid://cd8uwhn4iluwe"]
 
-[ext_resource type="Material" uid="uid://ckljsm4dkjple" path="res://2D/sdf-hatching/hatching.tres" id="1_8pevm"]
+[ext_resource type="Texture2D" uid="uid://dyv50s0ve2dms" path="res://icon.svg" id="1_2ei4g"]
+[ext_resource type="Material" uid="uid://cjo0sa2sos3ey" path="res://2D/dithering/dithering.tres" id="2_lln77"]
 
-[node name="Base2d" type="ColorRect"]
-material = ExtResource("1_8pevm")
+[node name="Base2d" type="Node"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(333, 225)
+scale = Vector2(2.92969, 2.92969)
+texture = ExtResource("1_2ei4g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("2_lln77")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true

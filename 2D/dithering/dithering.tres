@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cjo0sa2sos3ey"]
+
+[ext_resource type="Shader" path="res://2D/dithering/dithering.gdshader" id="1_kid6o"]
+
+[resource]
+shader = ExtResource("1_kid6o")
