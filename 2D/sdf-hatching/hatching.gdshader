@@ -27,7 +27,7 @@ vec2 rotate(vec2 uv, float angle, float mid) {
 
 float hash(vec2 uv, float angle, float density, float power) {
 	vec2 uv_hash = vec2(sin(rotate(uv, angle, 0.5) * density * 10.0));
-	return pow((uv_hash.x + 1.0) / 2.0, power);
+	return pow((uv_hash.x + 1.0) / 2.0, 1.0 / power);
 }
 
 void fragment() {

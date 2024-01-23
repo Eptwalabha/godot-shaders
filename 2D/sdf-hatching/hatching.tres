@@ -6,11 +6,11 @@
 [resource]
 shader = ExtResource("1_0rur2")
 shader_parameter/sdf_threshold = 0.5
-shader_parameter/sdf_border_width = 0.003
+shader_parameter/sdf_border_width = 0.002
 shader_parameter/scale = 2.0
 shader_parameter/screen_ratio = 1.778
-shader_parameter/hatch_width = 0.1
+shader_parameter/hatch_width = 0.094
 shader_parameter/hatch_angle = 0.75
-shader_parameter/hatch_density = 75.0
-shader_parameter/hash_pow = 3.0
+shader_parameter/hatch_density = 69.681
+shader_parameter/hash_pow = 0.144
 shader_parameter/sdf = ExtResource("2_8nbbd")
