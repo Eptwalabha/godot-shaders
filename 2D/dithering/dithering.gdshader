@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D screen : hint_screen_texture;
+uniform float dithering_order : hint_range(1.0, 4.0, 1.0) = 2.0;
 
 const mat4 dither_matrix4 = mat4(
 	vec4(0.0, 0.5, 0.125, 0.625),
@@ -16,7 +16,7 @@ float grayscale(vec4 color) {
 void fragment() {
 	vec4 pixel_color = texture(TEXTURE, UV);
 	float gray = grayscale(pixel_color);
-	vec2 dither_coord = mod(FRAGCOORD.xy, vec2(4.0));
+	vec2 dither_coord = mod(FRAGCOORD.xy, vec2(dithering_order));
 	float dither_value = dither_matrix4[int(dither_coord.x)][int(dither_coord.y)];
 	COLOR = vec4(vec3(float(gray > dither_value)), pixel_color.a);
 }

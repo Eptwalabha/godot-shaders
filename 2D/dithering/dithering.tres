@@ -4,3 +4,4 @@
 
 [resource]
 shader = ExtResource("1_kid6o")
+shader_parameter/dithering_order = 2.0
