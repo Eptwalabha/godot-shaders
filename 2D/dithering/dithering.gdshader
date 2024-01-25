@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform float dithering_order : hint_range(0.0, 3.0, 1.0) = 2.0;
+uniform float grayscale_amount : hint_range(0.0, 1.0) = 0.0;
 
 const float[64] dither_pattern = {
 	     0.0,      0.5,    0.125,    0.625,  0.03125,  0.53125,  0.15625,  0.65625,
@@ -13,13 +14,21 @@ const float[64] dither_pattern = {
 	0.984375, 0.484375, 0.859375, 0.359375, 0.953125, 0.453125, 0.828125, 0.328125
 };
 
+float dither_value(vec2 coord) {
+	return dither_pattern[int(coord.x) + int(coord.y) * 8];
+}
+
 float grayscale(vec4 color) {
 	return 0.3 * color.r + 0.59 * color.g + 0.11 * color.b;
 }
 
 void fragment() {
 	vec4 pixel_color = texture(TEXTURE, UV);
-	vec2 dither_coord = mod(FRAGCOORD.xy, vec2(pow(2.0, dithering_order)));
-	float dither_value = dither_pattern[int(dither_coord.x) + int(dither_coord.y) * 8];
-	COLOR = vec4(vec3(float(grayscale(pixel_color) > dither_value)), pixel_color.a);
+	pixel_color.rgb = mix(pixel_color.rgb, vec3(grayscale(pixel_color)), grayscale_amount);
+	vec2 coord = mod(FRAGCOORD.xy, vec2(pow(2.0, dithering_order)));
+	float dither_value = dither_value(coord);
+	COLOR.r = float(pixel_color.r > dither_value);
+	COLOR.g = float(pixel_color.g > dither_value);
+	COLOR.b = float(pixel_color.b > dither_value);
+	COLOR.a = pixel_color.a;
 }
