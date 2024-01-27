@@ -15,11 +15,11 @@ void fragment() {
 
 	float morph = (sin(TIME * 2.0) + 1.0) / 2.0;
 	float sdf_dist = mix(texture(sdf, uv1).r, texture(sdf, uv2).r, morph);
-	float sdf_mask = smoothstep(sdf_threshold, sdf_threshold, sdf_dist);
+	float sdf_mask = step(sdf_threshold, sdf_dist);
 	COLOR = mix(bg_color, sdf_color, sdf_mask);
 
 	// border
 	float border_dist = abs(sdf_threshold - sdf_dist);
-	float border_mask = 1.0 - smoothstep(sdf_border_width, sdf_border_width, border_dist);
+	float border_mask = 1.0 - step(sdf_border_width, border_dist);
 	COLOR = mix(COLOR, sdf_border_color, border_mask);
 }

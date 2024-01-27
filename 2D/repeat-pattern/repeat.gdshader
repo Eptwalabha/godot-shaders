@@ -24,7 +24,7 @@ vec2 rotate_uv(vec2 uv, float a, float mid) {
 void fragment() {
 	vec2 uv = rotate_uv(vec2(UV.x * 1.778, UV.y) * scale, angle_pi, 0.0);
 	float i = floor(uv.x);
-	float odd = smoothstep(0.5, 0.5, fract(uv.x / 2.0)) * 2.0 - 1.0;
+	float odd = step(0.5, fract(uv.x / 2.0)) * 2.0 - 1.0;
 	uv.y += speed * odd * TIME - i * shift;
 	uv = fract(uv);
 	uv = rotate_uv(uv, -angle_pi, 0.5);
@@ -33,6 +33,6 @@ void fragment() {
 	uv = clamp(uv, vec2(0.0), vec2(1.0));
 
 	float sdf_dist = texture(sdf, fract(uv * .5)).r;
-	float sdf_mask = smoothstep(sdf_threshold, sdf_threshold, sdf_dist);
+	float sdf_mask = step(sdf_threshold, sdf_dist);
 	COLOR = mix(bg_color, sdf_color, sdf_mask);
 }

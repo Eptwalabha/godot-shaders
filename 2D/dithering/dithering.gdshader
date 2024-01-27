@@ -33,6 +33,5 @@ void fragment() {
 	pixel = quantize(pixel, quantize_steps);
 	vec2 coord = mod(FRAGCOORD.xy, vec2(pow(2.0, dithering_order)));
 	float dither_value = dither_value(coord);
-	COLOR = pixel * min(ceil(pixel / dither_value - 1.0), 1.0);
-	//COLOR = pixel;
+	COLOR = pixel * step(dither_value, pixel);
 }

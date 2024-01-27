@@ -34,13 +34,12 @@ void fragment() {
 	vec2 uv = fract(vec2(UV.x * screen_ratio, UV.y) * scale);
 	uv = uv * .5 + vec2(0.5, 0.0);
 	float color = texture(sdf, uv).r;
-	float sdf_amount = smoothstep(sdf_threshold, sdf_threshold, color);
+	float sdf_amount = step(sdf_threshold, color);
 	float dist = abs(sdf_threshold - color);
 	float hatch_falloff = 1.0 - dist / hatch_width;
-	float hatch_mask = smoothstep(hatch_width, hatch_width, sdf_threshold - color);
+	float hatch_mask = step(hatch_width, sdf_threshold - color);
 	hatch_mask = (1. - sub(hatch_mask, sdf_amount)) * hatch_falloff;
 	float hash = hash(UV, hatch_angle, hatch_density, hash_pow);
-	COLOR.rgb = vec3(hash * hatch_mask);
-	float sdf_border = 1.0 - smoothstep(sdf_border_width, sdf_border_width, dist);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.0), sdf_border);
+	float sdf_border = 1.0 - step(sdf_border_width, dist);
+	COLOR.rgb = mix(vec3(hash * hatch_mask), vec3(1.0), sdf_border);
 }

@@ -27,7 +27,7 @@ float opIntersect(float distA, float distB) {
 void fragment() {
 	vec2 uv = fract(vec2(UV.x * screen_ratio, UV.y) * 2.0);
 	float sdf_dist = texture(sdf, uv).r;
-	float sdf_mask = smoothstep(sdf_threshold, sdf_threshold, sdf_dist);
+	float sdf_mask = step(sdf_threshold, sdf_dist);
 	COLOR = mix(bg_color, sdf_color, sdf_mask);
 	
 	// shadows
@@ -39,7 +39,7 @@ void fragment() {
 	// borders
 	sdf_dist = texture(sdf, uv + uv_shift).r;
 	float border_dist = sdf_threshold - sdf_dist;
-	float border_mask = 1.0 - smoothstep(sdf_border_width, sdf_border_width, abs(border_dist));
+	float border_mask = 1.0 - step(sdf_border_width, abs(border_dist));
 	float outer_border_mask = opSub(border_mask, sdf_mask);
 	float inner_border_mask = opIntersect(border_mask, sdf_mask);
 	COLOR = mix(COLOR, sdf_outer_border_color, outer_border_mask);
